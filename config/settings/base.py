@@ -74,15 +74,17 @@ THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'rest_framework',
+    'rest_framework', #REST framework
+    'taggit', #Tags for the photos
 ]
 LOCAL_APPS = [
     'nomadgram.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
     'nomadgram.images.apps.ImagesConfig',
+    'nomadgram.notifications.apps.NotificationsConfig' #notification app 
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = [DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS]
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
@@ -217,7 +219,7 @@ FIXTURE_DIRS = (
 # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
 SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
 SECURE_BROWSER_XSS_FILTER = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
@@ -233,6 +235,9 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # Django Admin URL.
 ADMIN_URL = 'admin/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
+
+TAGGIT_CASE_INSENSITIVE = True 
+
 ADMINS = [
     ("""Nomad Coders""", 'hhs19962002@naver.com'),
 ]
